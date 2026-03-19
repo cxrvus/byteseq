@@ -1,3 +1,5 @@
+pub mod playback;
+
 use crate::config::{Config, WaveConfig};
 
 pub struct SongPlayer {
@@ -11,7 +13,7 @@ pub struct NotePlayer {
 }
 
 impl NotePlayer {
-	pub fn tick(value: u8) {}
+	pub fn tick(self, value: u8) {}
 }
 
 pub struct NoteConverter {
@@ -40,9 +42,5 @@ pub enum Message {
 
 pub enum Sound {
 	Wave(WaveConfig),
-	Sample,
-}
-
-pub struct Sample {
-	id: u8,
+	Sample { id: u8 },
 }

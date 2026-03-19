@@ -9,6 +9,8 @@ clap = { version = "4.5.60", features = ["derive"], optional = true }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = { version = "1.0.149" }
 
+rodio = { version = "0.22.2", default-features = false, features = ["playback", "wav", "mp3", "symphonia-ogg"] }
+
 [features]
 default = ["clap"]
 clap = ["dep:clap"]

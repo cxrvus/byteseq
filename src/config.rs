@@ -59,11 +59,11 @@ pub struct SampleBank {
 
 #[derive(Debug, Clone, Default)]
 pub struct WaveConfig {
-	mode: TriggerMode,
-	wave_type: WaveType,
-	key: Key,
+	pub mode: TriggerMode,
+	pub wave_type: WaveType,
+	pub key: Key,
 	// duration in ms
-	duration: u32,
+	pub duration: u32,
 }
 
 #[derive(Debug, Clone, Default)]
