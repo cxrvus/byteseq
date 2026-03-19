@@ -1,5 +1,8 @@
 use std::path::PathBuf;
 
+// todo: add serde
+// todo: add documentation
+
 #[derive(Debug, Clone, Default)]
 pub struct Config {
 	samples: Vec<SampleConfig>,
@@ -37,7 +40,7 @@ pub struct ScaleConfig {
 
 #[derive(Debug, Clone)]
 pub enum VoiceMode {
-	Wave(Wave),
+	Wave(WaveConfig),
 	Bank(SampleBank),
 	// todo: add Pitched(Pitched) with sample ID and Key
 }
@@ -55,7 +58,7 @@ pub struct SampleBank {
 }
 
 #[derive(Debug, Clone, Default)]
-pub struct Wave {
+pub struct WaveConfig {
 	mode: TriggerMode,
 	wave_type: WaveType,
 	key: Key,
