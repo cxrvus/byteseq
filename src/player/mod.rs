@@ -1,18 +1,22 @@
 pub mod playback;
 
-use crate::config::{Config, WaveConfig};
+use anyhow::Result;
+
+use crate::{config::NoteConfig, player::playback::SoundPlayer};
 
 pub struct SongPlayer {
 	// song: Song, // todo: implement
-	config: Config,
+	config: NoteConfig,
 }
 
-pub struct NotePlayer {
-	// todo: implement
-	config: Config,
+pub struct NotePlayer<P: SoundPlayer> {
+	sounds: Vec<P>,
 }
 
-impl NotePlayer {
+impl<P: SoundPlayer> NotePlayer<P> {
+	pub fn new(config: NoteConfig) -> Result<Self> {
+		todo!()
+	}
 	pub fn tick(self, value: u8) {}
 }
 
@@ -22,7 +26,7 @@ pub struct NoteConverter {
 }
 
 impl NoteConverter {
-	pub fn convert(config: Config, value: u8) -> Note {
+	pub fn convert(config: NoteConfig, value: u8) -> Note {
 		// todo: remove duplicate values
 		todo!()
 	}
@@ -41,6 +45,5 @@ pub enum Message {
 }
 
 pub enum Sound {
-	Wave(WaveConfig),
 	Sample { id: u8 },
 }
